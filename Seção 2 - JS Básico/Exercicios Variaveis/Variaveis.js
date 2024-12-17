@@ -13,4 +13,4 @@ varC = armazena;
 // método 2
 //[varA, varB, varC] = [varB, varC, varA]; 
 
-console.log(varA, varB, varC);
+console.log(varA, varB, varC);  /////////commit
