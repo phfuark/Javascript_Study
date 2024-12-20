@@ -1,0 +1,38 @@
+.fightArea{
+    display: flex;
+    justify-content: space-between;
+}
+
+#char, #monster{
+    width: 30%;
+}
+
+#char{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+#monster{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+.lifeBar{
+    height: 10px;
+    border: solid 1px #858484;
+    border-radius: 5px;
+}
+
+.lifeBar .bar{
+    height: inherit;
+    background-color: #F00;
+    border-radius: 5px;
+    width: 10%;
+}
+
+.log{
+    border: 1px dotted #575757;
+    height: 200px;
+    overflow-y: scroll;
+}
