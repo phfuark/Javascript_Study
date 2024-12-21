@@ -84,18 +84,44 @@ class Stage {
     }
 
     update() {
-        // Fighter 1
-        this.fighter1El.querySelector(".name").innerHTML = `${this.fighter1.name} - ${this.fighter1.life} HP`;
+        this.fighter1El.querySelector(".name").innerHTML = `${this.fighter1.name} - ${this.fighter1.life.toFixed(0)} HP`;
         let bar1Stats = (this.fighter1.life / this.fighter1.maxLife) * 100;
         this.fighter1El.querySelector(".bar").style.width = `${bar1Stats}%`;
-
-        // Fighter 2
-        this.fighter2El.querySelector(".name").innerHTML = `${this.fighter2.name} - ${this.fighter2.life} HP`;
+    
+        this.fighter1El.querySelector(".bar").style.backgroundColor = 
+            bar1Stats >= 50 ? '#299c14' :
+            bar1Stats >= 25 ? '#f5e616' : '#F00';
+    
+        this.fighter2El.querySelector(".name").innerHTML = `${this.fighter2.name} - ${this.fighter2.life.toFixed(0)} HP`;
         let bar2Stats = (this.fighter2.life / this.fighter2.maxLife) * 100;
         this.fighter2El.querySelector(".bar").style.width = `${bar2Stats}%`;
+    
+        this.fighter2El.querySelector(".bar").style.backgroundColor = 
+            bar2Stats >= 50 ? '#299c14' :
+            bar2Stats >= 25 ? '#f5e616' : '#F00';
     }
-
+    
     attack(attacking, attacked) {
         console.log(`${attacking.name} está atacando ${attacked.name}`);
+        attacked.life = attacked.life - attacking.attack;
+        this.update();
+
+
+        let attackFactor = (Math.random() * 2 ).toFixed(2);
+        let actualAttack = attacking.attack * attackFactor;
+
+        let defenseFactor = (Math.random() * 2 ).toFixed(2);
+        let actualDefense = attacked.defense * defenseFactor;
+
+        if(actualAttack > (actualDefense/2)){
+            attacking.attack = actualAttack;
+            console.log(`${attacked.name} sofreu ${actualAttack.toFixed(0)} de dano...`);
+        } else{
+            attacking.attack = 0;
+            console.log(`${attacked.name} conseguiu denfender o ataque...`);
+        }
+
+        console.log(attackFactor);
+        console.log(defenseFactor);
     }
 }
