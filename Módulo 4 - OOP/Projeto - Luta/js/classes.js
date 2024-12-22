@@ -84,7 +84,7 @@ class Stage {
     }
 
     update() {
-        this.fighter1El.querySelector(".name").innerHTML = `${this.fighter1.name} - ${this.fighter1.life.toFixed(0)} HP`;
+        this.fighter1El.querySelector(".name").innerHTML = `${this.fighter1.name} - ${this.fighter1.life.toFixed(2)} HP`;
         let bar1Stats = (this.fighter1.life / this.fighter1.maxLife) * 100;
         this.fighter1El.querySelector(".bar").style.width = `${bar1Stats}%`;
     
@@ -92,13 +92,24 @@ class Stage {
             bar1Stats >= 50 ? '#299c14' :
             bar1Stats >= 25 ? '#f5e616' : '#F00';
     
-        this.fighter2El.querySelector(".name").innerHTML = `${this.fighter2.name} - ${this.fighter2.life.toFixed(0)} HP`;
+        this.fighter2El.querySelector(".name").innerHTML = `${this.fighter2.name} - ${this.fighter2.life.toFixed(2)} HP`;
         let bar2Stats = (this.fighter2.life / this.fighter2.maxLife) * 100;
         this.fighter2El.querySelector(".bar").style.width = `${bar2Stats}%`;
     
         this.fighter2El.querySelector(".bar").style.backgroundColor = 
             bar2Stats >= 50 ? '#299c14' :
             bar2Stats >= 25 ? '#f5e616' : '#F00';
+
+        if (this.fighter1.life <= 0){
+            this.fighter1.life = 0;
+            this.fighter1El.querySelector(".name").innerHTML = `${this.fighter1.name} - 0 HP`;
+        }
+
+        
+        if (this.fighter2.life <= 0){
+            this.fighter2.life = 0;
+            this.fighter2El.querySelector(".name").innerHTML = `${this.fighter2.name} - 0 HP`;
+        }
     }
     
     attack(attacking, attacked) {
@@ -115,7 +126,7 @@ class Stage {
 
         if(actualAttack > (actualDefense/2)){
             attacking.attack = actualAttack;
-            console.log(`${attacked.name} sofreu ${actualAttack.toFixed(0)} de dano...`);
+            console.log(`${attacked.name} sofreu ${actualAttack.toFixed(2)} de dano...`);
         } else{
             attacking.attack = 0;
             console.log(`${attacked.name} conseguiu denfender o ataque...`);
