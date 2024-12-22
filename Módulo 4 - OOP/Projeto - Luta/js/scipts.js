@@ -1,3 +1,5 @@
+let log = new Log(document.querySelector('.log'));
+
 let Char1= new Knight('Fuark');
 
 // console.log(Char1.name);
@@ -11,11 +13,14 @@ let Monst1 = new bigMonster();
 // console.log(Monst1.defense);
 // console.log(Monst1.attack);
 
+
+
 const stage = new Stage(
     Char1,
     Monst1,
     document.querySelector('#char'),
     document.querySelector('#monster'),
+    log
 );
 
 stage.start();
