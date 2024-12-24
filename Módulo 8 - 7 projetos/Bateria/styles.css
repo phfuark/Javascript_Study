@@ -1,0 +1,75 @@
+.all {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Alinha os itens no centro horizontalmente */
+    height: 100vh; /* Usa a altura total da janela */
+    gap: 1.5rem;
+}
+
+body {
+    height: 100vh; /* Define a altura da janela como referência */
+    background-color: #313131;   
+    color: white;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Kanit", serif;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+    gap: 10px; /* Espaçamento entre os itens */
+
+    height: 240px;
+}
+
+.buttons button{
+    width: 70px;
+    height: 70px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+
+button {
+    color: white;
+    background-color: #313131;
+    border: solid 1px white;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #1f1f1f;
+    transition: 0.5s;
+}
+
+.inputArea{
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+    gap: 1rem;
+    text-align: center;
+}
+
+.inputArea p{
+    font-size: 0.8rem;    
+}
+
+.inputArea span{
+    font-family: sans-serif;
+    font-size: 0.9rem;
+}
+
+.input{
+    height: 2rem;
+    padding-inline: 10px;   
+}
+
+.tocar{
+    height: 2rem;   
+}
